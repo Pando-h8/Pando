@@ -1,16 +1,23 @@
 {
-  "name": "pando_users",
+  "name": "tanaman_users",
   "version": "1.0.0",
-  "description": "Users Services for Pando",
+  "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dbtest:create": "NODE_ENV=test sequelize db:create && NODE_ENV=test sequelize db:migrate",
+    "dbtest:drop": "NODE_ENV=test sequelize db:drop",
+    "test": "NODE_ENV=test jest --detectOpenHandles --runInBand --forceExit"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongodb": "^3.5.9"
+    "jest": "^26.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.2.1",
+    "sequelize": "^6.1.1",
+    "supertest": "^4.0.2"
   }
 }
