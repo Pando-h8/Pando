@@ -5,7 +5,6 @@ const generateToken = require("../helpers/generateToken");
 class UserController {
   static register(req, res, next) {
     const { name, email, password } = req.body;
-    console.log(req.body);
 
     User.create({
       name,
@@ -13,8 +12,9 @@ class UserController {
       password,
     })
       .then((user) => {
+        console.log(user.dataValues);
         const access_token = generateToken(user);
-        res.status(201).json({ access_token });
+        res.status(201).json({ access_token, userData: user.dataValues });
       })
       .catch((err) => {
         let errObj = {};
@@ -42,7 +42,7 @@ class UserController {
           return;
         } else {
           const access_token = generateToken(user);
-          res.headers = access_token;
+          req.headers = access_token;
           res.status(200).json({ access_token });
         }
       })

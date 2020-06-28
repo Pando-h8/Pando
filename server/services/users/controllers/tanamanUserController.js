@@ -16,7 +16,9 @@ class tanamanUsersController {
 
   static create(req, res, next) {
     const UserId = req.userData.id;
-    const { nama, umur_sekarang, terakhir_disiram, form } = req.body;
+    const { nama, umur_sekarang, form } = req.body;
+    const terakhir_disiram = new Date();
+    console.log(terakhir_disiram);
     TanamanUser.create({
       nama,
       umur_sekarang,
@@ -25,6 +27,7 @@ class tanamanUsersController {
       UserId,
     })
       .then((data) => {
+        console.log(data);
         res.status(201).json(data);
       })
       .catch((err) => {
@@ -58,7 +61,7 @@ class tanamanUsersController {
       { where: { id } }
     )
       .then((data) => {
-        res.status(200).json(data);
+        res.status(200).json({successCode: `${data[0]}`});
       })
       .catch((err) => next(err));
   }
@@ -76,7 +79,7 @@ class tanamanUsersController {
         } else {
           res
             .status(200)
-            .json({ successCode: `Successfully plant product with id ${id}` });
+            .json({ successCode: `Successfully delete plant  with id ${id}` });
         }
       })
       .catch((err) => {
