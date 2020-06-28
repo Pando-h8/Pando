@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const {
   ApolloServer,
   gql,
@@ -28,7 +29,7 @@ const schema = makeExecutableSchema({
 });
 
 const server = new ApolloServer({
-  schema
+  schema,
 });
 
 // server.listen().then(({ url }) => {
@@ -36,6 +37,7 @@ const server = new ApolloServer({
 // });
 
 const app = express();
+app.use(cors());
 server.applyMiddleware({ app });
 
 app.listen({ port: 4000 }, () =>
