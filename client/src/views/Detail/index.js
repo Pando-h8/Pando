@@ -52,7 +52,7 @@ function PlantsById() {
   useEffect(() => {
     if (data) {
       const { umur_sekarang } = data.getTanamanUserById;
-      if (umur_sekarang > 0 && umur_sekarang < 5) {
+      if (umur_sekarang >= 0 && umur_sekarang < 5) {
         setFormBaru("1");
       } else if (umur_sekarang >= 5 && umur_sekarang < 10) {
         setFormBaru("2");
@@ -88,6 +88,7 @@ function PlantsById() {
     });
   }
 
+  console.log(formBaru, "<<<<<<<<<<<<<<<<");
   return (
     <div className="PlantsById">
       {data && <PlantsRender form={formBaru} />}

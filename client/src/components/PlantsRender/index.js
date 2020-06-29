@@ -29,6 +29,7 @@ const Controls = () => {
 };
 
 const Plant = ({form}) => {
+  console.log(form);
   const [model, setModel] = useState();
   const [active, setActive] = useState(false);
   const props = useSpring({

@@ -5,6 +5,7 @@ class tanamanUsersController {
     const UserId = req.userData.id;
     TanamanUser.findAll({
       where: { UserId },
+      order: [["id", "asc"]]
     })
       .then((data) => {
         res.status(200).json(data);
