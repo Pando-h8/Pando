@@ -1,0 +1,49 @@
+.login , .register {
+    border: 1px solid black;
+    display: block;
+    width : 300px;
+    height: 250px;
+    margin: auto
+    
+}
+
+.register-form, .login-form {
+    /* border: 1px solid black; */
+    height : 220px;
+    margin: auto;
+    display : flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.input-form{
+    background-color: #5cdb95;
+    height : 40px;
+    border-radius: 3mm;
+    text-align: center;
+    font-size: 16px;
+}
+
+.input-form::placeholder {
+    color : black;
+    font-weight: 700;
+}
+
+.input-btn {
+    background-color : #5cdb95;
+    height: 50px;
+    border-radius: 3mm;
+    color :#05386b;
+    font-weight: 900;
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+.input-btn:hover {
+    background-color: #8EE4AF;
+}
+
+.input-form:focus {
+    background-color: #8EE4AF;
+}

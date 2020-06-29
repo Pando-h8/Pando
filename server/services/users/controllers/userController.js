@@ -31,7 +31,7 @@ class UserController {
 
   static login(req, res, next) {
     const { email, password } = req.body;
-    const error = { status: 400, name: "Invalid Email/Password" };
+    const error = { status: 404, name: "Invalid Email/Password" };
 
     User.findOne({
       where: { email },

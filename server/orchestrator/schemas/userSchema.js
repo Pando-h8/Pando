@@ -2,8 +2,13 @@ const { gql } = require("apollo-server");
 const axios = require("axios");
 
 const typeDefs = gql`
-  input inputUser {
+  input RegisterUser {
     name: String
+    email: String
+    password: String
+  }
+
+  input LoginUser {
     email: String
     password: String
   }
@@ -14,26 +19,28 @@ const typeDefs = gql`
     email: String
     password: String
     access_token: String
+    errorCode: String
+    message: String
   }
 
   extend type Mutation {
-    register(user: inputUser): User 
-    login(user: inputUser): User 
+    register(user: RegisterUser): User
+    login(user: LoginUser): User
   }
 `;
 
 const resolvers = {
   Mutation: {
     register: async (_, args) => {
-        console.log(args.user);
+      console.log(args.user);
       try {
         const response = await axios.post(
           "http://localhost:3001/register",
           args.user
         );
-        return { access_token : response.data.access_token};
+        return { access_token: response.data.access_token };
       } catch (err) {
-        return err;
+        return err.response.data;
       }
     },
     login: async (_, args, context) => {
@@ -46,7 +53,7 @@ const resolvers = {
         console.log(response.data.access_token);
         return response.data;
       } catch (err) {
-        return err;
+        return err.response.data;
       }
     },
   },
