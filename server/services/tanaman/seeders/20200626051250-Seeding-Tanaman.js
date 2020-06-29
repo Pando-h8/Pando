@@ -4,14 +4,41 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Tanamans', [
       {
-      nama: 'tanaman1',
+      nama: 'Apple',
       umur: 2,
       gambar: 'SuperAdmin',
       growth_rate: 2,
       resistance: 2,
       createdAt : new Date(),
       updatedAt : new Date()
-      }
+      },
+      {
+      nama: 'Mango',
+      umur: 2,
+      gambar: 'SuperAdmin',
+      growth_rate: 2,
+      resistance: 2,
+      createdAt : new Date(),
+      updatedAt : new Date()
+      },
+      {
+      nama: 'Cactus',
+      umur: 2,
+      gambar: 'SuperAdmin',
+      growth_rate: 2,
+      resistance: 2,
+      createdAt : new Date(),
+      updatedAt : new Date()
+      },
+      {
+      nama: 'Palm',
+      umur: 2,
+      gambar: 'SuperAdmin',
+      growth_rate: 2,
+      resistance: 2,
+      createdAt : new Date(),
+      updatedAt : new Date()
+      },
   ], {});
     /**
      * Add seed commands here.

@@ -33,11 +33,14 @@ class UserController {
     const { email, password } = req.body;
     const error = { status: 404, name: "Invalid Email/Password" };
 
+    console.log(email,"<<<<<<");
     User.findOne({
       where: { email },
     })
       .then((user) => {
+        console.log("1");
         if (!user || !bcrypt.compareSync(password, user.password)) {
+          console.log("2");
           next(error);
           return;
         } else {
@@ -47,6 +50,7 @@ class UserController {
         }
       })
       .catch((err) => {
+        console.log("4");
         next(err);
       });
   }

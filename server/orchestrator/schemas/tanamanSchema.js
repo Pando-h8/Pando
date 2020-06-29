@@ -46,7 +46,9 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     getTanamanUser: async (_, args) => {
-        const { access_token } = args
+      console.log("disini");
+      console.log(args, "<<<<<<<<<<<<");
+      const { access_token } = args
       try {
         const response = await axios.get("http://localhost:3001/tanamanUser", 
         {headers: {access_token}});
@@ -70,7 +72,7 @@ const resolvers = {
   },
   Mutation: {
     postTanamanUser: async (_, args, context) => {
-      console.log(context);
+      console.log(args, "<<<<<<<<<<");
       const { access_token } = args.tanamanUser
       try {
         const response = await axios.post("http://localhost:3001/tanamanUser/", args.tanamanUser.data, {headers: {access_token}}

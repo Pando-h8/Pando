@@ -1,5 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Canvas, useFrame, extend, useThree } from "react-three-fiber";
 import { useSpring, a } from "react-spring/three";
 
@@ -26,9 +28,20 @@ const Controls = () => {
   );
 };
 
+const Plant = () => {
+  const [model, setModel] = useState();
+  useEffect(() => {
+    new GLTFLoader().load("/assets/model.gltf", setModel);
+  }, []);
+  if (model) {
+    model.scene.scale.set(3, 3, 3);
+  }
+  return model ? <primitive object={model.scene} castShadow /> : null;
+};
+
 const Plane = () => {
   return (
-    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -5, 0]} receiveShadow>
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
       <planeBufferGeometry attach="geometry" args={[100, 100]} />
       <meshPhysicalMaterial attach="material" color="blue" />
     </mesh>
@@ -61,13 +74,18 @@ const Box = () => {
 
 function PlantsRender() {
   return (
-    <Canvas camera={{ position: [1, 2, 5] }} onCreated={({ gl }) => {}}>
+    <Canvas
+      camera={{ position: [1, 2, 5] }}
+      onCreated={({ gl }) => {
+        gl.shadowMap.enabled = true;
+        gl.shadowMap.type = THREE.PCFShadowMap;
+      }}
+    >
       <fog attach="fog" args={["white", 5, 20]} />
       <ambientLight />
-      <spotLight position={[0, 5, 10]} penumbra={1} />
+      <spotLight position={[15, 20, 5]} penumbra={1} />
       <Controls />
-      <Box />
-      <Plane />
+      <Plant />
     </Canvas>
   );
 }

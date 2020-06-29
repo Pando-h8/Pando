@@ -17,12 +17,13 @@ class tanamanUsersController {
   static create(req, res, next) {
     const UserId = req.userData.id;
     const { nama, umur_sekarang, form } = req.body;
-    const terakhir_disiram = new Date();
-    console.log(terakhir_disiram);
+    // const terakhir_disiram = new Date();
+    console.log(nama);
+    // console.log(terakhir_disiram);
     TanamanUser.create({
       nama,
       umur_sekarang,
-      terakhir_disiram,
+      terakhir_disiram: new Date(),
       form,
       UserId,
     })

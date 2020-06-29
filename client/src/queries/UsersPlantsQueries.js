@@ -34,7 +34,7 @@ export const POST_USERS_PLANT = gql`
     postTanamanUser(
       tanamanUser: {
         access_token: $access_token
-        data: { nama: $nama, umur_sekarang: $umur_sekarang, form: $form }
+        data: { nama: $nama, umur_sekarang: $umur_sekarang , form: $form }
       }
     ) {
       id
