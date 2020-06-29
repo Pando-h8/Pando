@@ -74,8 +74,7 @@ describe("TanamanUsers Structure", () => {
         .send({
           nama: "Apple",
           umur_sekarang: 1,
-          terahir_disiram: Date.now(),
-          form: "http://localhost:3000/",
+          form: "http://localhost:3001/",
         })
         .set("access_token", access_token)
         .then((result) => {
@@ -138,8 +137,7 @@ describe("TanamanUsers Structure", () => {
           .send({
             nama: "Apple",
             umur_sekarang: 1,
-            terahir_disiram: Date.now(),
-            form: "http://localhost:3000/",
+            form: "http://localhost:3001/",
           })
           .set("access_token", access_token)
           .then((result) => {
@@ -159,8 +157,7 @@ describe("TanamanUsers Structure", () => {
           .send({
             nama: "",
             umur_sekarang: 1,
-            terahir_disiram: Date.now(),
-            form: "http://localhost:3000/",
+            form: "http://localhost:3001/",
           })
           .set("access_token", access_token)
           .then((result) => {
@@ -180,8 +177,7 @@ describe("TanamanUsers Structure", () => {
           .send({
             nama: "Apple",
             umur_sekarang: 1,
-            terahir_disiram: Date.now(),
-            form: "http://localhost:3000/2",
+            form: "http://localhost:3001/2",
           })
           .set("access_token", access_token)
           .then((result) => {
@@ -200,8 +196,7 @@ describe("TanamanUsers Structure", () => {
           .send({
             nama: "Apple",
             umur_sekarang: 1,
-            terahir_disiram: Date.now(),
-            form: "http://localhost:3000/",
+            form: "http://localhost:3001/",
           })
           .set("access_token", access_token)
           .then((result) => {
@@ -218,8 +213,7 @@ describe("TanamanUsers Structure", () => {
           .send({
             nama: "",
             umur_sekarang: 1,
-            terahir_disiram: Date.now(),
-            form: "http://localhost:3000/",
+            form: "http://localhost:3001/",
           })
           .set("access_token", access_token)
           .then((result) => {

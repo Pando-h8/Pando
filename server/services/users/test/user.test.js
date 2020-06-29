@@ -239,7 +239,7 @@ describe("register", () => {
         });
     });
 
-    test("user failed to logged-In with status code 400", (done) => {
+    test("user failed to logged-In with status code 404", (done) => {
       request(app)
         .post("/login")
         .send({
@@ -248,7 +248,7 @@ describe("register", () => {
         })
         .then((response) => {
           const { body, status } = response;
-          expect(status).toBe(400);
+          expect(status).toBe(404);
           expect(body).toHaveProperty("errorCode");
           expect(body).toHaveProperty("message", "Invalid Email/Password");
           done();

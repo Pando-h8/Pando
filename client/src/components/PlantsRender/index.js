@@ -28,22 +28,26 @@ const Controls = () => {
   );
 };
 
-const Plant = () => {
+const Plant = ({form}) => {
   const [model, setModel] = useState();
+  const [active, setActive] = useState(false);
+  const props = useSpring({
+    scale: active ? [5, 5, 5] : [3, 3, 3]
+  });
   useEffect(() => {
-    new GLTFLoader().load("/assets/model.gltf", setModel);
+    new GLTFLoader().load(`/assets/bamboo_${form}.gltf`, setModel);
   }, []);
   if (model) {
     model.scene.scale.set(3, 3, 3);
   }
-  return model ? <primitive object={model.scene} castShadow /> : null;
+  return model ? <a.primitive object={model.scene} onPointerOver={() => setActive(!active)} onPointerOut={() => setActive(!active)} scale={props.scale} castShadow /> : null;
 };
 
 const Plane = () => {
   return (
-    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -5, 0]} receiveShadow>
       <planeBufferGeometry attach="geometry" args={[100, 100]} />
-      <meshPhysicalMaterial attach="material" color="blue" />
+      <meshPhysicalMaterial attach="material" color="brown" />
     </mesh>
   );
 };
@@ -72,7 +76,7 @@ const Box = () => {
   );
 };
 
-function PlantsRender() {
+function PlantsRender({form}) {
   return (
     <Canvas
       camera={{ position: [1, 2, 5] }}
@@ -85,7 +89,7 @@ function PlantsRender() {
       <ambientLight />
       <spotLight position={[15, 20, 5]} penumbra={1} />
       <Controls />
-      <Plant />
+      <Plant form={form} />
     </Canvas>
   );
 }

@@ -8,6 +8,8 @@ export const GET_USERS_PLANTS = gql`
       umur_sekarang
       terakhir_disiram
       form
+      gambar
+      resistance
     }
   }
 `;
@@ -20,6 +22,8 @@ export const GET_USERS_PLANT_BY_ID = gql`
       umur_sekarang
       terakhir_disiram
       form
+      resistance
+      createdAt
     }
   }
 `;
@@ -30,17 +34,26 @@ export const POST_USERS_PLANT = gql`
     $nama: String
     $umur_sekarang: Int
     $form: String
+    $resistance: Int
+    $gambar: String
   ) {
     postTanamanUser(
       tanamanUser: {
         access_token: $access_token
-        data: { nama: $nama, umur_sekarang: $umur_sekarang , form: $form }
+        data: {
+          nama: $nama
+          umur_sekarang: $umur_sekarang
+          form: $form
+          resistance: $resistance
+          gambar: $gambar
+        }
       }
     ) {
       id
       nama
       umur_sekarang
       terakhir_disiram
+      resistance
       form
     }
   }
@@ -50,7 +63,7 @@ export const PUT_USERS_PLANT = gql`
   mutation putTanamanUser(
     $id: ID!
     $access_token: String!
-    $nama: String
+    $terakhir_disiram: String
     $umur_sekarang: Int
     $form: String
   ) {
@@ -58,7 +71,9 @@ export const PUT_USERS_PLANT = gql`
       tanamanUser: {
         id: $id
         access_token: $access_token
-        data: { nama: $nama, umur_sekarang: $umur_sekarang, form: $form }
+        terakhir_disiram: $terakhir_disiram
+        umur_sekarang: $umur_sekarang
+        form: $form
       }
     ) {
       successCode

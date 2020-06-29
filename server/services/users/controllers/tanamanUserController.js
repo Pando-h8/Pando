@@ -16,7 +16,7 @@ class tanamanUsersController {
 
   static create(req, res, next) {
     const UserId = req.userData.id;
-    const { nama, umur_sekarang, form } = req.body;
+    const { nama, umur_sekarang, form, resistance, gambar } = req.body;
     // const terakhir_disiram = new Date();
     console.log(nama);
     // console.log(terakhir_disiram);
@@ -24,11 +24,13 @@ class tanamanUsersController {
       nama,
       umur_sekarang,
       terakhir_disiram: new Date(),
+      resistance,
       form,
+      gambar,
       UserId,
     })
       .then((data) => {
-        console.log(data);
+        console.log(data, "<<<<<<<<<<<");
         res.status(201).json(data);
       })
       .catch((err) => {
@@ -44,10 +46,11 @@ class tanamanUsersController {
           next({ name: "Data not found" });
           return;
         } else {
-          const { id, nama, umur_sekarang, terakhir_disiram, form } = result;
+          const { id, nama, umur_sekarang, terakhir_disiram, form, resistance, createdAt } = result;
+          console.log(result);
           res
             .status(200)
-            .json({ id, nama, umur_sekarang, terakhir_disiram, form });
+            .json({ id, nama, umur_sekarang, terakhir_disiram, form, resistance, createdAt });
         }
       })
       .catch((err) => next(err));
@@ -55,16 +58,21 @@ class tanamanUsersController {
 
   static update(req, res, next) {
     const UserId = req.userData.id;
-    const { nama, umur_sekarang, terakhir_disiram, form } = req.body;
     const { id } = req.params;
+    const { terakhir_disiram, umur_sekarang, form } = req.body
+    console.log("1");
     TanamanUser.update(
-      { nama, umur_sekarang, terakhir_disiram, form, UserId },
+      { terakhir_disiram, umur_sekarang, form },
       { where: { id } }
-    )
+      )
       .then((data) => {
+        console.log("2");
         res.status(200).json({successCode: `${data[0]}`});
       })
-      .catch((err) => next(err));
+      .catch((err) => {
+        console.log("3");
+        next(err)
+      });
   }
 
   static destroy(req, res, next) {

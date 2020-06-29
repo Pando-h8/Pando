@@ -8,6 +8,8 @@ import { Card, CardDeck, Container, Row, Col } from "react-bootstrap";
 import plant from "../../assets/plant.png";
 import plus from "../../assets/plus.png";
 import { GET_PLANTS } from "../../queries/APIQueries";
+import { Link } from "react-router-dom";
+import "./plants.css";
 
 function Plants(props) {
   const access_token = localStorage.getItem("access_token");
@@ -16,6 +18,8 @@ function Plants(props) {
     onCompleted: () => props.history.push("/plants"),
   });
   const [plantName, setPlantName] = useState("");
+  const [dataGambar, setDataGambar] = useState("");
+  const [plantResistance, setPlantResistance] = useState(0);
   const { data, loading, error } = useQuery(GET_USERS_PLANTS, {
     variables: { access_token },
   });
@@ -32,14 +36,19 @@ function Plants(props) {
         nama: plantName,
         form: "early",
         umur_sekarang: 0,
+        resistance: plantResistance,
+        gambar: dataGambar,
       },
     });
+    setAddPlant(false);
   };
 
-  const onPointerOver = (e) => {
+  const onPointerOver = (e, rs, gbr) => {
     const { value } = e.target;
     console.log(value);
     setPlantName(value);
+    setPlantResistance(rs);
+    setDataGambar(gbr);
   };
 
   const cardImgStyle = {
@@ -65,37 +74,38 @@ function Plants(props) {
     <div className="Plants">
       {loading && <p>Loading...</p>}
       {/* {error && <p>Error {error}</p>} */}
-      <h1>{plantName}</h1>
       {!loading && Object.keys(data).length && (
         <Container>
           <Row>
             <div
-              className="scrolling-wrapper row flex-row flex-nowrap pb-4"
-              style={{ marginTop: 300 }}
+              className="scrolling-wrapper row flex-row pb-4"
+              style={{ marginTop: 50 }}
             >
               {data.getTanamanUser.map((dt, idx) => (
-                <Col key={idx}>
+                <div className="col-4" key={idx}>
                   <Card.Img
                     onClick={(e) => {
                       e.preventDefault();
+                      props.history.push(`/plants/${dt.id}`);
                     }}
                     variant="top"
-                    src={plant}
+                    src={dt.gambar}
                     style={cardImgStyle}
                   />
                   <Card.Body>
-                    <Card.Title style={cardTitle}>{dt.name}</Card.Title>
+                    <Card.Title style={cardTitle}>{dt.nama}</Card.Title>
                   </Card.Body>
-                </Col>
+                </div>
               ))}
 
-              <Col>
+              <Col className="addForm">
                 {!addPlant ? (
                   <div>
                     <Card.Img
                       variant="top"
                       src={plus}
                       className="addPlant"
+                      style={cardPlusButton}
                       onClick={() => {
                         setAddPlant(true);
                       }}
@@ -106,7 +116,9 @@ function Plants(props) {
                     {dataTanaman.getTanamans.map((dt, idx) => (
                       <button
                         key={dt.id}
-                        onPointerOver={onPointerOver}
+                        onPointerOver={(e) =>
+                          onPointerOver(e, dt.resistance, dt.gambar)
+                        }
                         onClick={onClick}
                         value={dt.nama}
                       >

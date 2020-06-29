@@ -8,13 +8,11 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import { client } from "./config/graphql";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ApolloProvider client={client}>
-      <Router>
-        <App />
-      </Router>
-    </ApolloProvider>
-  </React.StrictMode>,
+  <ApolloProvider client={client}>
+    <Router>
+      <App />
+    </Router>
+  </ApolloProvider>,
   document.getElementById("root")
 );
 

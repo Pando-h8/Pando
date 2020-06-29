@@ -38,8 +38,10 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
-      terahir_disiram: DataTypes.DATE,
+      terakhir_disiram: DataTypes.DATE,
+      resistance: DataTypes.INTEGER,
       form: DataTypes.STRING,
+      gambar: DataTypes.STRING,
       UserId: DataTypes.INTEGER,
     },
     {

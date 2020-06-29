@@ -14,10 +14,16 @@ module.exports = {
       umur_sekarang: {
         type: Sequelize.INTEGER
       },
-      terahir_disiram: {
+      terakhir_disiram: {
         type: Sequelize.DATE
       },
       form: {
+        type: Sequelize.STRING
+      },
+      resistance: {
+        type: Sequelize.INTEGER
+      },
+      gambar: {
         type: Sequelize.STRING
       },
       UserId: {
