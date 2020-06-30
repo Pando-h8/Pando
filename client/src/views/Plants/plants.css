@@ -1,14 +1,67 @@
-.addPlant{
+.addBtn{
+    /* border: 1px solid black; */
+    position : absolute;
+    right : 5px;
+    bottom : 2px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     flex:1;
+    transition: 0.5s;
+}
+
+.cancelBtn{
+    position: absolute;
+    top: -15px;
+    right: -5px;
+    font-size: 12px;
+    border: none;
+    border-radius: 6mm;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    background-color: #379683;
+    color: white;
+    font-weight: 900;
+}
+
+
+.addPlant{
+    position : absolute;
+    right: 5px;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* border: 1px solid blue; */
+    height: 170px;
+    width: 120px;
+    padding: 10px 5px;
+    border-radius: 2mm;
+    background-color: rgba(240, 240,240, 0.5);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+}
+
+
+.eachBtn:hover , .cancelBtn:hover{
+    background-color: #5CDB95;
+}
+.eachBtn{
+    background-color: #379683;
+    border: none;
+    color: white;
+    border-radius: 2mm;
+    width: 100px;
+    margin: auto;
+    transition: 0.5s;
 }
 
 .addForm {
+    /* border: 1px solid red; */
     display: flex;
-    flex-wrap: wrap;
-    flex:1;
+    /* flex-wrap: wrap;
+    flex:1; */
     align-items: center;
 }
 

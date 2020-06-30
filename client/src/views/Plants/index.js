@@ -77,7 +77,7 @@ function Plants(props) {
       {!loading && Object.keys(data).length && (
         <Container>
           <Row>
-            <div
+            <div 
               className="scrolling-wrapper row flex-row pb-4"
               style={{ marginTop: 50 }}
             >
@@ -104,7 +104,7 @@ function Plants(props) {
                     <Card.Img
                       variant="top"
                       src={plus}
-                      className="addPlant"
+                      className="addBtn"
                       style={cardPlusButton}
                       onClick={() => {
                         setAddPlant(true);
@@ -113,8 +113,12 @@ function Plants(props) {
                   </div>
                 ) : (
                   <div className="addPlant">
-                    {dataTanaman.getTanamans.map((dt, idx) => (
-                      <button
+                    <button onClick={(e)=>{
+                      e.preventDefault()
+                      setAddPlant(false);
+                    }}className="cancelBtn">X</button>
+                    {dataTanaman. getTanamans.map((dt, idx) => (
+                      <button className="eachBtn"
                         key={dt.id}
                         onPointerOver={(e) =>
                           onPointerOver(e, dt.resistance, dt.gambar)
