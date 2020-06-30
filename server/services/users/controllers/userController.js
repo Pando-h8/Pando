@@ -44,6 +44,7 @@ class UserController {
           next(error);
           return;
         } else {
+          console.log("3")
           const access_token = generateToken(user);
           req.headers = access_token;
           res.status(200).json({ access_token });

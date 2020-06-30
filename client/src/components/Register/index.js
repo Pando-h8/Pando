@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { REGISTER } from "../../queries/UserQueries";
 import { useHistory } from "react-router-dom";
+import "./Form.css";
 
 const Register = () => {
   const history = useHistory();
@@ -45,7 +46,12 @@ const Register = () => {
     console.log("register!");
   };
 
+  const keLogin = () => {
+    history.push('/')
+  }
+
   return (
+    <div className='bg'>
     <div className="register">
       <form className="register-form" onSubmit={submitReg}>
         <input
@@ -54,7 +60,7 @@ const Register = () => {
           name="email"
           onChange={changeInput}
           type="email"
-          placeholder="EMAIL"
+          placeholder="E-mail"
           required
         />
         <input
@@ -63,7 +69,7 @@ const Register = () => {
           name="name"
           onChange={changeInput}
           type="text"
-          placeholder="USERNAME"
+          placeholder="Username"
           required
         />
         <input
@@ -72,11 +78,13 @@ const Register = () => {
           name="password"
           onChange={changeInput}
           type="password"
-          placeholder="PASSWORD"
+          placeholder="Password"
           required
         />
-        <input className="input-btn" type="submit" value="REGISTER" />
-      </form>
+        <input className="input-btn" type="submit" value="Sign Up" />
+        <p className="keLogin" onClick={keLogin}>Login?</p>
+        </form>
+      </div>
     </div>
   );
 };

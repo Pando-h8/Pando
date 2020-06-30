@@ -1,0 +1,29 @@
+.bg {
+  background: linear-gradient(-110deg, #379683 50%, rgba(0, 0, 0, 0) 10%), url('./logoresize.jpg');
+    /* Set rules to fill background */
+    min-height: 100vh;
+    min-width: 1024px;
+    
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+    
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.login {
+  position: relative;
+  float: right;
+  margin-right: 300px;
+  margin-top: 380px
+}
+
+.register {
+  position: relative;
+  float: right;
+  margin-right: 300px;
+  margin-top: 380px
+}

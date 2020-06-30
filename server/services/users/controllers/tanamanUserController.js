@@ -3,14 +3,18 @@ const { TanamanUser } = require("../models");
 class tanamanUsersController {
   static findAll(req, res, next) {
     const UserId = req.userData.id;
+    console.log("....................1")
+    console.log(UserId);
     TanamanUser.findAll({
       where: { UserId },
       order: [["id", "asc"]]
     })
       .then((data) => {
+    console.log("....................2")
         res.status(200).json(data);
       })
       .catch((err) => {
+    console.log("....................3")
         next(err);
       });
   }

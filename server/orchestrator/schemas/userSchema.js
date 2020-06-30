@@ -44,13 +44,13 @@ const resolvers = {
       }
     },
     login: async (_, args, context) => {
-      console.log(args.user);
+      console.log(args.user, "<<<<");
       try {
         const response = await axios.post(
           `http://localhost:3001/login`,
           args.user
         );
-        console.log(response.data.access_token);
+        console.log(response.data.access_token, ">>>>>>>");
         return response.data;
       } catch (err) {
         return err.response.data;

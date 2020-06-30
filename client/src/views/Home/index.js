@@ -1,13 +1,12 @@
 import React from "react";
 import Login from "../../components/Login";
 import PlantsRender from "../../components/PlantsRender";
+import './home.css'
 
 function Home() {
   return (
-    <div className="Home">
-      <h1>Home</h1>
-      <Login />
-      <PlantsRender />
+    <div className="bg">
+      <Login className="login" />
     </div>
   );
 }

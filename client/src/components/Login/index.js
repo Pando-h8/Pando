@@ -44,6 +44,10 @@ const Login = () => {
     console.log(inputForm);
   };
 
+  const keRegister = () => {
+    history.push('/register')
+  }
+
   return (
     <div className="login">
       <form className="login-form" onSubmit={submitLogin}>
@@ -53,7 +57,7 @@ const Login = () => {
           name="email"
           onChange={changeInput}
           type="email"
-          placeholder="EMAIL"
+          placeholder="E-mail"
           required
         />
         <input
@@ -62,10 +66,11 @@ const Login = () => {
           name="password"
           onChange={changeInput}
           type="password"
-          placeholder="PASSWORD"
+          placeholder="Password"
           required
         />
-        <input className="input-btn" type="submit" value="LOGIN" />
+        <input className="input-btn" type="submit" value="Login" />
+        <p className="keRegister" onClick={keRegister}>Your First Plant?</p>
       </form>
     </div>
   );
