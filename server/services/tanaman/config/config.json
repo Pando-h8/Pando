@@ -9,7 +9,7 @@
   "test": {
     "username": "postgres",
     "password": "12345678",
-    "database": "Pando_test",
+    "database": "Pando-test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

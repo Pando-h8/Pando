@@ -10,7 +10,7 @@ import plus from "../../assets/plus.png";
 import { GET_PLANTS } from "../../queries/APIQueries";
 import { Link } from "react-router-dom";
 import "./plants.css";
-import Navbar from '../../components/Navbar'
+import Navbar from "../../components/Navbar";
 
 function Plants(props) {
   const access_token = localStorage.getItem("access_token");
@@ -70,8 +70,8 @@ function Plants(props) {
     fontFamily: "Pacifico",
     fontSize: 30,
   };
-  console.log(loading)
-  console.log(data)
+  console.log(loading);
+  console.log(data);
 
   return (
     <div className="Plants bgk">
@@ -80,61 +80,67 @@ function Plants(props) {
       {error && <p>Error {error}</p>}
       {!loading && !error && (
         <div className="Plants-row">
-            <Row>
-              <div
-                className="scrolling-wrapper row flex-row flex-nowrap pb-4"
-                style={{ marginTop: 250 }}
-              >
-                {data.getTanamanUser.map((dt, idx) => (
-                  <div className="col-2 mr-3 ml-3 hoverCard" key={idx}>
-                    <Card.Img
-                      onClick={(e) => {
-                        e.preventDefault();
-                        props.history.push(`/plants/${dt.id}`);
-                      }}
-                      variant="top"
-                      src={`/assets/${dt.nama}.png`}
-                      style={cardImgStyle}
-                    />
-                    <Card.Body>
-                      <Card.Title style={cardTitle}>{dt.nama}</Card.Title>
-                      <p className="lead font-weight-bold">{dt.umur_sekarang} Hari</p>
-                    </Card.Body>
-                  </div>
-                ))}
-
-                <Col className="addForm">
-                  {!addPlant ? (
-                    <div>
-                      <Card.Img
-                        variant="top"
-                        src={plus}
-                        className="addPlant"
-                        style={cardPlusButton}
-                        onClick={() => {
-                          setAddPlant(true);
-                        }}
-                      />
-                    </div>
-                  ) : (
-                    <div className="addPlant">
-                      {dataTanaman.getTanamans.map((dt, idx) => (
-                        <button
-                          key={dt.id}
-                          onPointerOver={(e) =>
-                            onPointerOver(e, dt.resistance, dt.gambar)
-                          }
-                          onClick={onClick}
-                          value={dt.nama}
-                        >
-                          {dt.nama}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </Col>
-              </div>
-            </Row>
+          <Row>
+            <div
+              className="scrolling-wrapper row flex-row flex-nowrap pb-4"
+              style={{ marginTop: 250 }}
+            >
+              {data.getTanamanUser.map((dt, idx) => (
+                <div className="col-2 mr-3 ml-3 hoverCard" key={idx}>
+                  <Card.Img
+                    onClick={(e) => {
+                      e.preventDefault();
+                      props.history.push(`/plants/${dt.id}`);
+                    }}
+                    variant="top"
+                    src={`/assets/${dt.nama}.png`}
+                    style={cardImgStyle}
+                  />
+                  <Card.Body>
+                    <Card.Title style={cardTitle}>{dt.nama}</Card.Title>
+                    <p className="lead font-weight-bold">
+                      {dt.umur_sekarang} Hari
+                    </p>
+                  </Card.Body>
+                </div>
+              ))}
+            </div>
+          </Row>
+        </div>
+      )}
+      <div
+        variant="top"
+        src={plus}
+        className="addBtn"
+        style={cardPlusButton}
+        onClick={() => {
+          setAddPlant(!addPlant);
+        }}
+      >
+        <i class="fas fa-plus-circle"></i>
+      </div>
+      {addPlant && (
+        <div className="addPlant">
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setAddPlant(false);
+            }}
+            className="cancelBtn"
+          >
+            X
+          </button>
+          {dataTanaman.getTanamans.map((dt, idx) => (
+            <button
+              className="eachBtn"
+              key={dt.id}
+              onPointerOver={(e) => onPointerOver(e, dt.resistance, dt.gambar)}
+              onClick={onClick}
+              value={dt.nama}
+            >
+              {dt.nama}
+            </button>
+          ))}
         </div>
       )}
     </div>

@@ -5,7 +5,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { extend } from "react-three-fiber";
 import { useSpring, a } from "react-spring/three";
 
-const Plant = ({nama, form}) => {
+const Plant = ({nama, form, position}) => {
   console.log(form);
   const [model, setModel] = useState();
   const [active, setActive] = useState(false);
@@ -19,7 +19,7 @@ const Plant = ({nama, form}) => {
     model.scene.scale.set(3, 3, 3);
   }
   return model ? <a.primitive
-    position={[0,0,0]} 
+    position={position} 
     object={model.scene} 
     onPointerOver={() => setActive(!active)} 
     onPointerOut={() => setActive(!active)} 

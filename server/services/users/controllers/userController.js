@@ -32,26 +32,20 @@ class UserController {
   static login(req, res, next) {
     const { email, password } = req.body;
     const error = { status: 404, name: "Invalid Email/Password" };
-
-    console.log(email,"<<<<<<");
     User.findOne({
       where: { email },
     })
       .then((user) => {
-        console.log("1");
         if (!user || !bcrypt.compareSync(password, user.password)) {
-          console.log("2");
           next(error);
           return;
         } else {
-          console.log("3")
           const access_token = generateToken(user);
           req.headers = access_token;
           res.status(200).json({ access_token });
         }
       })
       .catch((err) => {
-        console.log("4");
         next(err);
       });
   }

@@ -4,7 +4,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 const Garden = () => {
   const [model, setModel] = useState();
   useEffect(() => {
-    new GLTFLoader().load(`/assets/Field_1268.gltf`, setModel);
+    new GLTFLoader().load(`/assets/island.gltf`, setModel);
   }, []);
   if (model) {
     model.scene.scale.set(1/10, 1/10, 1/10);

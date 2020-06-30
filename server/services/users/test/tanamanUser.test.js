@@ -29,8 +29,6 @@ beforeAll((done) => {
     })
     .then((res) => {
       const { body, status } = res;
-      // const { access_token } = body;
-      // console.log(body);
       access_token = body.access_token;
       done();
     })
@@ -70,17 +68,12 @@ describe("TanamanUsers Structure", () => {
   describe("Authorization Success", () => {
     test("Authorization Success", (done) => {
       request(app)
-        .post("/tanamanUser")
-        .send({
-          nama: "Apple",
-          umur_sekarang: 1,
-          form: "http://localhost:3001/",
-        })
+        .get(`/tanamanUser/${tanamanUser_id}`)
+        .set("access_token", access_token)
         .set("access_token", access_token)
         .then((result) => {
           const { body, status } = result;
-          tanamanUser_id = body.id;
-          expect(status).toBe(201);
+          expect(status).toBe(200);
           done();
         })
         .catch((err) => done(err));
@@ -96,6 +89,50 @@ describe("TanamanUsers Structure", () => {
           .then((result) => {
             const { body, status } = result;
             expect(status).toBe(200);
+            done();
+          })
+          .catch((err) => done(err));
+      });
+    });
+
+    describe("POST TanamanUser Success", () => {
+      test("POST TanamanUser Success", (done) => {
+        request(app)
+          .post("/tanamanUser")
+          .send({
+            nama: "Apple",
+            umur_sekarang: 1,
+            form: "1",
+            resistance: 3,
+            gambar: "http://localhost:3001/",
+          })
+          .set("access_token", access_token)
+          .then((result) => {
+            const { body, status } = result;
+            tanamanUser_id = body.id;
+            expect(status).toBe(201);
+            done();
+          })
+          .catch((err) => done(err));
+      });
+    });
+
+    describe("POST TanamanUser Failed", () => {
+      test("POST TanamanUser Failed Validation in Name", (done) => {
+        request(app)
+          .post("/tanamanUser")
+          .send({
+            nama: "",
+            umur_sekarang: 1,
+            form: "1",
+            resistance: 3,
+            gambar: "http://localhost:3001/",
+          })
+          .set("access_token", access_token)
+          .then((result) => {
+            const { body, status } = result;
+            expect(status).toBe(400);
+            expect(body).toHaveProperty("errorCode", "VALIDATION_ERROR");
             done();
           })
           .catch((err) => done(err));
@@ -130,52 +167,12 @@ describe("TanamanUsers Structure", () => {
       });
     });
 
-    describe("POST TanamanUser Success", () => {
-      test("POST TanamanUser Success", (done) => {
-        request(app)
-          .post("/tanamanUser")
-          .send({
-            nama: "Apple",
-            umur_sekarang: 1,
-            form: "http://localhost:3001/",
-          })
-          .set("access_token", access_token)
-          .then((result) => {
-            const { body, status } = result;
-            tanamanUser_id = body.id;
-            expect(status).toBe(201);
-            done();
-          })
-          .catch((err) => done(err));
-      });
-    });
-
-    describe("POST TanamanUser Failed", () => {
-      test("POST TanamanUser Failed Validation in Name", (done) => {
-        request(app)
-          .post("/tanamanUser")
-          .send({
-            nama: "",
-            umur_sekarang: 1,
-            form: "http://localhost:3001/",
-          })
-          .set("access_token", access_token)
-          .then((result) => {
-            const { body, status } = result;
-            expect(status).toBe(400);
-            expect(body).toHaveProperty("errorCode", "VALIDATION_ERROR");
-            done();
-          })
-          .catch((err) => done(err));
-      });
-    });
-
     describe("PUT TanamanUser By Id Success", () => {
       test("PUT TanamanUser By iD Success", (done) => {
         request(app)
           .put(`/tanamanUser/${tanamanUser_id}`)
           .send({
-            nama: "Apple",
+            terakhir_disiram: new Date(),
             umur_sekarang: 1,
             form: "http://localhost:3001/2",
           })
@@ -194,32 +191,14 @@ describe("TanamanUsers Structure", () => {
         request(app)
           .put(`/tanamanUser/1000`)
           .send({
-            nama: "Apple",
+            terakhir_disiram: new Date(),
             umur_sekarang: 1,
-            form: "http://localhost:3001/",
+            form: "http://localhost:3001/2",
           })
           .set("access_token", access_token)
           .then((result) => {
             const { body, status } = result;
             expect(status).toBe(404);
-            done();
-          })
-          .catch((err) => done(err));
-      });
-
-      test("Put TanamanUser By iD Failed because of validation in Name", (done) => {
-        request(app)
-          .put(`/tanamanUser/${tanamanUser_id}`)
-          .send({
-            nama: "",
-            umur_sekarang: 1,
-            form: "http://localhost:3001/",
-          })
-          .set("access_token", access_token)
-          .then((result) => {
-            const { body, status } = result;
-            expect(status).toBe(400);
-            expect(body).toHaveProperty("errorCode", "VALIDATION_ERROR");
             done();
           })
           .catch((err) => done(err));

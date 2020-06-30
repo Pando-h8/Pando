@@ -11,21 +11,12 @@ module.exports = (err, req, res, next) => {
     statusCode = 404;
     errorCode = "INVALID_EMAIL_OR_PASSWORD";
     message = "Invalid Email/Password";
-  } else if (err.name === "SequelizeUniqueConstraintError") {
-    statusCode = 400;
-    errorCode = "UNIQUE_CONSTRAINT_ERROR";
-    message = { email: "Email address already in use!" };
   } else if (
     err.name === "Data not found" ||
-    err.name === "Token not found" ||
-    err.name === "Product not found"
+    err.name === "Token not found"
   ) {
     statusCode = 404;
     errorCode = "DATA_NOT_FOUND";
-    message = err.name;
-  } else if (err.name === "Forbidden Access") {
-    statusCode = 403;
-    errorCode = "FORBIDDEN_ACCESS";
     message = err.name;
   }
 
