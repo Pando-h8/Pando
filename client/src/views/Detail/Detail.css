@@ -77,6 +77,8 @@ canvas {
       color: black;
       width: 350px;
       height: 200px;
+      font-family: 'Kalam';
+      font-size: 20px;
   }
 
   .Canvas3D .Spray:hover{
