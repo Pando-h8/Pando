@@ -9,8 +9,8 @@ app.use(express.json())
 app.use(express.urlencoded({ extended:false }))
 app.use('/tanaman', routes)
 
-// app.listen(PORT, () => {
-//     console.log(`Listening to PORT ${PORT}`)
-// })
+app.listen(PORT, () => {
+    console.log(`Listening to PORT ${PORT}`)
+})
 
 module.exports = app
