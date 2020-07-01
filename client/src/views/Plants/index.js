@@ -82,8 +82,8 @@ function Plants(props) {
         <div className="Plants-row">
           <Row>
             <div
-              className="scrolling-wrapper row flex-row flex-nowrap pb-4"
-              style={{ marginTop: 250 }}
+              className="scrolling-wrapper row flex-row flex-nowrap pb-4 "
+              style={{ marginTop: '25vh' }}
             >
               {data.getTanamanUser.map((dt, idx) => (
                 <div className="col-2 mr-3 ml-3 hoverCard" key={idx}>
@@ -98,7 +98,7 @@ function Plants(props) {
                   />
                   <Card.Body>
                     <Card.Title style={cardTitle}>{dt.nama}</Card.Title>
-                    <p className="lead font-weight-bold">
+                    <p className="lead font-weight-bold" style={{fontFamily: 'Kalam'}}>
                       {dt.umur_sekarang} Hari
                     </p>
                   </Card.Body>

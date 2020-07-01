@@ -13,7 +13,7 @@ function DonatePage() {
   return (
     <div className="bgkdonate">
       <Navbar />
-      <div style={{paddingTop:900}}>
+      <div>
         <h1 className="donatebutton" onClick={redirectDonate}>Donate Here</h1>
       </div>
     </div>

@@ -21,6 +21,7 @@
     list-style-type: none;
     font-size: 20px;
     font-weight: bold;
+    font-family: 'Kalam';
 }
 
 .Navbar-choice .button {
@@ -37,4 +38,5 @@
 .Navbar-choice .button:hover{
     background-color: #379683;
     border-radius: 15px;
+    color:#8ee4af;
 }

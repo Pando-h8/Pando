@@ -28,6 +28,7 @@ canvas {
     opacity: 60%;
     z-index: 1;
     cursor: pointer;
+    transition: 0.5s ease;
     /* left: 50%; */
   }
   
@@ -41,6 +42,9 @@ canvas {
     position: absolute;
     z-index: 1;
     cursor: pointer;
+    /* border: 1px solid black; */
+    transition: 0.3s ease;
+    /* margin-top: 3vh; */
     /* left: 50%; */
   }
 
@@ -54,6 +58,7 @@ canvas {
     top: 0;
     left: 0;
     font-size: 300%;
+    transition: 0.5s ease;
   }
   .Canvas3D .Back:hover{
     text-align: center;
@@ -103,6 +108,7 @@ canvas {
     opacity: 60%;
     font-size: 300%;
     font-family: "Pacifico";
+    transition: 0.5s ease;
   }
   
   .Canvas3D .umur:hover {

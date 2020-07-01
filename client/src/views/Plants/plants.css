@@ -23,6 +23,7 @@
     color: #8ee4af;
 }
 
+
 .cancelBtn{
     position: absolute;
     top: -15px;
@@ -113,6 +114,10 @@
 .bgk {
     background: url('./ground3.jpg');
     background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    /* background-position-y: 2vh; */
       /* Set rules to fill background */
       /* min-height: 100vh; */
       /* min-width: 100%; */
@@ -132,8 +137,14 @@
   
     }
 
+.hoverCard{
+    margin: 0 50px !important;
+    min-width: 300px !important;
+    max-width: 400px !important;
+    /* border: 1px solid black; */
+    transition: 0.7s;
+}
 
 .hoverCard:hover{
-    background-color: #5cdb62;
-    border-radius: 130px;
+    transform: scale(1.25);
 }
