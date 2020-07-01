@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "postgres",
-    "password": "12345",
-    "database": "Pando-3",
+    "password": "vii97",
+    "database": "Pando",
     "host": "localhost",
     "dialect": "postgres"
   },

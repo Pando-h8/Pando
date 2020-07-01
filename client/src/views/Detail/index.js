@@ -16,6 +16,7 @@ import Garden from "../../components/Garden";
 import Birds from "../../components/Birds";
 import "./Detail.css";
 import Swal from "sweetalert2";
+import Rain from '../../components/RainParticle/Rain'
 
 function PlantsById() {
   const positions = [
@@ -62,6 +63,7 @@ function PlantsById() {
   const [pot, setPot] = useState("block");
   const [status, setStatus] = useState("");
   const forceUpdate = useCallback(() => updateState({}), [data]);
+  const [rain, setRain] = useState(false)
 
   useEffect(() => {
     if (data) {
@@ -147,6 +149,12 @@ function PlantsById() {
           form: formBaru,
         },
       });
+
+      setRain(true)
+      setTimeout(()=>{
+        setRain(false)
+      },20000)
+
     }
   }
 
@@ -213,6 +221,7 @@ function PlantsById() {
           <p className="buttonCanvas Delete" onClick={onDelete}>
             <i class="fas fa-trash-alt"></i>
           </p>
+          {rain && <Rain />}
           <Canvas
             camera={{ position: [0, 0, 10] }}
             onCreated={({ gl }) => {
@@ -239,6 +248,7 @@ function PlantsById() {
               <Birds />
             </Suspense>
           </Canvas>
+          
         </div>
       )}
     </div>
