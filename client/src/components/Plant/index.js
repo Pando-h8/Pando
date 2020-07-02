@@ -10,7 +10,7 @@ const Plant = ({nama, form, position}) => {
   const [model, setModel] = useState();
   const [active, setActive] = useState(false);
   const props = useSpring({
-    scale: active ? [5, 5, 5] : [3, 3, 3]
+    scale: active ? [3.5, 3.5, 3.5] : [3, 3, 3]
   });
   useEffect(() => {
     new GLTFLoader().load(`/assets/${nama.toLowerCase()}_${form}.gltf`, setModel);

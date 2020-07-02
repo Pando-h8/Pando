@@ -12,7 +12,7 @@ function Navbar() {
   return (
     <nav className="Navbar">
     <NavLink exact to="/plants">
-      <img src={logo} style={{height:109, width:179}}></img>
+      <img src={logo} style={{height:90, width:179}} />
     </NavLink>
       <ul className="Navbar-choice">
         <li>

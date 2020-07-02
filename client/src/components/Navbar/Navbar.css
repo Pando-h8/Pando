@@ -5,7 +5,7 @@
     justify-content: space-between;
     background-color: #5cdb95;
     padding: 0 15px;
-    position:fixed;
+    position: fixed;
     z-index: 2;
 }
 
@@ -15,12 +15,18 @@
     align-items: center;
 }
 
+ul.Navbar-choice {
+    margin-block-start: 0 !important;
+    margin-block-end: 0 !important;
+}
+
 .Navbar-choice li {
     margin: 0 20px;
     text-decoration: none;
     list-style-type: none;
     font-size: 20px;
     font-weight: bold;
+    font-family: 'Kalam';
 }
 
 .Navbar-choice .button {
@@ -33,8 +39,8 @@
     transition: all ease 0.5s;
 }
 
-.Navbar-choice .button-active,
-.Navbar-choice .button:hover{
+.Navbar-choice .button-active, .Navbar-choice .button:hover {
     background-color: #379683;
     border-radius: 15px;
+    color: #8ee4af;
 }

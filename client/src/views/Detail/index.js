@@ -16,8 +16,10 @@ import Garden from "../../components/Garden";
 import Birds from "../../components/Birds";
 import "./Detail.css";
 import Swal from "sweetalert2";
+import Rain from "../../components/RainParticle/Rain";
+import { useAudio } from "../../helpers/AudioHooks";
 
-function PlantsById() {
+function PlantsById(props) {
   const positions = [
     [0, 0, 0],
     [10, 0, 0],
@@ -61,7 +63,14 @@ function PlantsById() {
   const [nama, setNama] = useState("");
   const [pot, setPot] = useState("block");
   const [status, setStatus] = useState("");
+  const [play, setPlay] = useState(true);
+  // const [audio, setAudio] = useState(new Audio("/assets/audio/nature3.mp3"));
+  const [playing, toggle] = useAudio("/assets/audio/nature3.mp3");
   const forceUpdate = useCallback(() => updateState({}), [data]);
+  const [rain, setRain] = useState(false);
+  const startPosition = [5, 0, 10];
+  const [updatePosition, setUpdatePosition] = useState(startPosition);
+  // start.loop = true
 
   useEffect(() => {
     if (data) {
@@ -101,7 +110,7 @@ function PlantsById() {
       const { terakhir_disiram, umur_sekarang } = data.getTanamanUserById;
       const miliSecond = dateNow - Date.parse(terakhir_disiram);
       const umr = Math.floor(miliSecond / 8.64e7);
-      if (umr > 1 || umur_sekarang === 0) {
+      if (umr >= 1 || umur_sekarang === 0) {
         setSprayed(true);
         setPot("block");
       } else {
@@ -110,7 +119,7 @@ function PlantsById() {
         setStatus("Tanaman kamu sudah disiram, siram  lagi besok");
       }
     }
-  });
+  }, [data, loading]);
 
   useEffect(() => {
     if (data) {
@@ -120,12 +129,39 @@ function PlantsById() {
       if (umr > resistance) {
         setNama("dead");
         setFormBaru(1);
+        setPot("none");
         setStatus("Tanaman kamu sudah mati");
       } else {
         setNama(nama);
       }
     }
   });
+
+  // function playSound() {
+  //   setPlay(true);
+  //   setPause(false);
+  //   start.play();
+  // }
+  // function pauseSound() {
+  //   setPlay(false);
+  //   setPause(true);
+  //   start.pause();
+  // }
+
+  // useEffect(() => {
+  //   if(play){
+  //     console.log("nyala");
+  //     audio.play()
+  //   }else{
+  //     console.log("mati");
+  //     audio.pause()
+  //     // start.pause()
+  //   }
+  // }, [play]);
+
+  useEffect(() => {
+    toggle();
+  }, []);
 
   function spray() {
     if (sprayed) {
@@ -135,7 +171,7 @@ function PlantsById() {
         createdAt,
       } = data.getTanamanUserById;
       console.log(createdAt);
-      const miliSecond = dateNow - Date.parse(createdAt);
+      // const miliSecond = dateNow - Date.parse(createdAt);
       // const umr = Math.floor(miliSecond / 8.64e7);
       const umr = umur_sekarang + 1;
       sprayThePlant({
@@ -147,15 +183,17 @@ function PlantsById() {
           form: formBaru,
         },
       });
+
+      setRain(true);
+      setTimeout(() => {
+        setRain(false);
+      }, 20000);
     }
   }
 
   function onDelete() {
     const { id } = data.getTanamanUserById;
     Swal.fire({
-      // title: 'Delete this plant?',
-      // text: "Delete this plant?",
-      // icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: "#5cdb95",
       cancelButtonColor: "#5cdb95",
@@ -169,11 +207,6 @@ function PlantsById() {
             access_token,
           },
         });
-        // Swal.fire(
-        //   'Deleted!',
-        //   'Your file has been deleted.',
-        //   'success'
-        // )
       }
     });
   }
@@ -185,7 +218,11 @@ function PlantsById() {
     );
   }
 
-  function backKeList() {
+  async function backKeList() {
+    if (playing) await toggle();
+    console.log("kembali");
+    setPlay(false);
+    console.log("kembali1");
     history.push("/plants");
   }
 
@@ -194,9 +231,9 @@ function PlantsById() {
       {data && (
         <div className="Canvas3D">
           <h1>{nama}</h1>
-          <p className="umur">{data.getTanamanUserById.umur_sekarang} Hari</p>
+          <p className="umur">Day {data.getTanamanUserById.umur_sekarang}</p>
           <p className="Back" onClick={backKeList}>
-            <i class="fas fa-arrow-circle-left"></i>
+            <i className="fas fa-arrow-circle-left"></i>
           </p>
           <img
             className="buttonCanvas Spray"
@@ -206,24 +243,30 @@ function PlantsById() {
             }}
             style={{ display: pot }}
           />
-          {status && <p className="buttonCanvas Spray">{status}</p>}
+          {status && <p className="buttonCanvas Status">{status}</p>}
           <p className="buttonCanvas Youtube" onClick={keYoutube}>
-            <i class="fab fa-youtube"></i>Youtube
+            <i className="fab fa-youtube"></i>Youtube
+          </p>
+          <p className="buttonCanvas toggle" onClick={toggle}>
+            {!playing ? <i class="fas fa-volume-mute"></i> : <i class="fas fa-volume-up"></i>}
           </p>
           <p className="buttonCanvas Delete" onClick={onDelete}>
-            <i class="fas fa-trash-alt"></i>
+            <i className="fas fa-trash-alt"></i>
           </p>
+          {rain && <Rain />}
           <Canvas
-            camera={{ position: [0, 0, 10] }}
-            onCreated={({ gl }) => {
+            camera={{ position: [-5, 0, 10] }}
+            onCreated={({ gl, camera }) => {
+              console.log(camera);
+              camera.castShadow = true;
               gl.shadowMap.enabled = true;
               gl.shadowMap.type = THREE.PCFShadowMap;
             }}
           >
-            {/* <fog attach="fog" args={["gray", 10, 40]} /> */}
+            <fog attach="fog" args={["gray", 50, 200]} />
             <ambientLight />
-            <spotLight position={[15, 20, 5]} penumbra={1} />
-            <Controls />
+            <spotLight position={[20, 10, -30]} penumbra={1} />
+            <Controls pos={updatePosition} />
             {positions.map((position, idx) => {
               return (
                 <Plant

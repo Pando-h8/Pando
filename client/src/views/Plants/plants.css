@@ -5,25 +5,30 @@
     flex:1;
 } */
 
-  
-.addBtn{
+.addBtn {
     /* border: 1px solid black; */
-    position : absolute;
-    right : 50px;
-    bottom : 0;
+    position: absolute;
+    right: 50px;
+    bottom: 0;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    flex:1;
-    transition: 0.5s;
+    flex: 1;
+    transition: 0.5s all ease;
 }
 
 .addBtn .fas {
     font-size: 500%;
     color: #8ee4af;
+    transition: 0.5s all ease;
 }
 
-.cancelBtn{
+.addBtn .fas:hover {
+    font-size: 500%;
+    color: #fff;
+}
+
+.cancelBtn {
     position: absolute;
     top: -15px;
     right: -5px;
@@ -38,9 +43,8 @@
     font-weight: 900;
 }
 
-
-.addPlant{
-    position : absolute;
+.addPlant {
+    position: absolute;
     right: 125px;
     bottom: 30px;
     display: flex;
@@ -51,15 +55,15 @@
     width: 120px;
     padding: 10px 5px;
     border-radius: 2mm;
-    background-color: rgba(240, 240,240, 0.5);
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-
+    background-color: rgba(240, 240, 240, 0.5);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.eachBtn:hover , .cancelBtn:hover{
+.eachBtn:hover, .cancelBtn:hover {
     background-color: #5CDB95;
 }
-.eachBtn{
+
+.eachBtn {
     background-color: #379683;
     border: none;
     color: white;
@@ -88,52 +92,66 @@
 }
 
 .Plants-row::-webkit-scrollbar {
-    background-color:transparent;
-    width:16px
+    background-color: transparent;
+    width: 16px
 }
 
 /* background of the scrollbar except button or resizer */
+
 .Plants-row::-webkit-scrollbar-track {
-    background-color:transparent
+    background-color: transparent
 }
 
 /* scrollbar itself */
+
 .Plants-row::-webkit-scrollbar-thumb {
-    background-color:transparent;
-    border-radius:16px;
-    border:2px solid transparent
+    background-color: transparent;
+    border-radius: 16px;
+    border: 2px solid transparent
 }
 
 .Plants-row::-webkit-scrollbar-thumb:hover {
-    background-color:#379683;
+    background-color: #379683;
 }
+
 /* set button(top and bottom of the scrollbar) */
-.Plants-row::-webkit-scrollbar-button {display:none}
+
+.Plants-row::-webkit-scrollbar-button {
+    display: none
+}
 
 .bgk {
-    background: url('./ground3.jpg');
+    background: url('./Ground3Trans.png');
     background-size: 100vw 100vh;
-      /* Set rules to fill background */
-      /* min-height: 100vh; */
-      /* min-width: 100%; */
-      
-      /* Set up proportionate scaling */
-      /* width: 100%; */
-      /* height: auto; */
-      
-      /* Set up positioning */
-      /* position: fixed; */
-      /* top: 0;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    /* background-position-y: 2vh; */
+    /* Set rules to fill background */
+    /* min-height: 100vh; */
+    /* min-width: 100%; */
+    /* Set up proportionate scaling */
+    /* width: 100%; */
+    /* height: auto; */
+    /* Set up positioning */
+    /* position: fixed; */
+    /* top: 0;
       left: 0; */
-  }
+}
 
-  .margin-top {
-      margin-top: 50px;
-  
-    }
+.margin-top {
+    margin-top: 50px;
+}
 
+.hoverCard {
+    font-family: "Kalam";
+    margin: 0 50px !important;
+    min-width: 300px !important;
+    max-width: 400px !important;
+    /* border: 1px solid black; */
+    transition: 0.7s;
+}
 
-.hoverCard:hover{
-    background-color: #5cdb62;
-    border-radius: 130px;
+.hoverCard:hover {
+    transform: scale(1.25);
 }

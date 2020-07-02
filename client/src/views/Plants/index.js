@@ -70,7 +70,6 @@ function Plants(props) {
     fontFamily: "Pacifico",
     fontSize: 30,
   };
-  console.log(loading);
   console.log(data);
 
   return (
@@ -83,7 +82,7 @@ function Plants(props) {
           <Row>
             <div
               className="scrolling-wrapper row flex-row flex-nowrap pb-4"
-              style={{ marginTop: 250 }}
+              style={{ marginTop: '25vh' }}
             >
               {data.getTanamanUser.map((dt, idx) => (
                 <div className="col-2 mr-3 ml-3 hoverCard" key={idx}>
@@ -98,9 +97,11 @@ function Plants(props) {
                   />
                   <Card.Body>
                     <Card.Title style={cardTitle}>{dt.nama}</Card.Title>
-                    <p className="lead font-weight-bold">
-                      {dt.umur_sekarang} Hari
-                    </p>
+                    {(new Date() - Date.parse(dt.terakhir_disiram)) / 8.64e7 > dt.resistance ? (
+                      <p className="lead font-weight-bold">Dead Plant</p>
+                    ): <p className="lead font-weight-bold">
+                    Day {dt.umur_sekarang}
+                  </p>}
                   </Card.Body>
                 </div>
               ))}
@@ -117,7 +118,7 @@ function Plants(props) {
           setAddPlant(!addPlant);
         }}
       >
-        <i class="fas fa-plus-circle"></i>
+        <i className="fas fa-plus-circle"></i>
       </div>
       {addPlant && (
         <div className="addPlant">
