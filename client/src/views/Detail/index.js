@@ -7,7 +7,6 @@ import {
   GET_USERS_PLANTS,
   DELETE_USERS_PLANT,
 } from "../../queries/UsersPlantsQueries";
-import { Button } from "react-bootstrap";
 import * as THREE from "three";
 import { Canvas } from "react-three-fiber";
 import Controls from "../../components/Controls";
@@ -64,13 +63,10 @@ function PlantsById(props) {
   const [pot, setPot] = useState("block");
   const [status, setStatus] = useState("");
   const [play, setPlay] = useState(true);
-  // const [audio, setAudio] = useState(new Audio("/assets/audio/nature3.mp3"));
   const [playing, toggle] = useAudio("/assets/audio/nature3.mp3");
-  const forceUpdate = useCallback(() => updateState({}), [data]);
   const [rain, setRain] = useState(false);
   const startPosition = [5, 0, 10];
   const [updatePosition, setUpdatePosition] = useState(startPosition);
-  // start.loop = true
 
   useEffect(() => {
     if (data) {
@@ -136,28 +132,6 @@ function PlantsById(props) {
       }
     }
   });
-
-  // function playSound() {
-  //   setPlay(true);
-  //   setPause(false);
-  //   start.play();
-  // }
-  // function pauseSound() {
-  //   setPlay(false);
-  //   setPause(true);
-  //   start.pause();
-  // }
-
-  // useEffect(() => {
-  //   if(play){
-  //     console.log("nyala");
-  //     audio.play()
-  //   }else{
-  //     console.log("mati");
-  //     audio.pause()
-  //     // start.pause()
-  //   }
-  // }, [play]);
 
   useEffect(() => {
     toggle();
@@ -248,7 +222,11 @@ function PlantsById(props) {
             <i className="fab fa-youtube"></i>Youtube
           </p>
           <p className="buttonCanvas toggle" onClick={toggle}>
-            {!playing ? <i class="fas fa-volume-mute"></i> : <i class="fas fa-volume-up"></i>}
+            {!playing ? (
+              <i className="fas fa-volume-mute"></i>
+            ) : (
+              <i className="fas fa-volume-up"></i>
+            )}
           </p>
           <p className="buttonCanvas Delete" onClick={onDelete}>
             <i className="fas fa-trash-alt"></i>
