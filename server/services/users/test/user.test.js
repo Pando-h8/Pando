@@ -27,7 +27,6 @@ describe("register", () => {
         const { body, status } = res;
         const { access_token } = body;
         const decoded = jwt.decode(access_token, { complete: true });
-        console.log(status);
         expect(status).toBe(201);
         expect(decoded.payload).toHaveProperty("id");
         expect(decoded.payload).toHaveProperty("name", User_name);

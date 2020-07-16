@@ -57,7 +57,6 @@ const resolvers = {
       try {
         const response = await axios.get("http://localhost:3001/tanamanUser", 
         {headers: {access_token}});
-        console.log(response);
         return response.data;
       } catch (err) {
         return err;
@@ -65,11 +64,9 @@ const resolvers = {
     },
     getTanamanUserById: async (_, args) => {
       const { id, access_token } = args;
-      console.log(args,"ini schema");
       try {
         const response = await axios.get(`http://localhost:3001/tanamanUser/${id}`,
         {headers: {access_token}});
-        console.log(response.data, "<<<<<<<<<<<");
         return response.data;
       } catch (err) {
         return err;
@@ -78,7 +75,6 @@ const resolvers = {
   },
   Mutation: {
     postTanamanUser: async (_, args, context) => {
-      console.log(args, "<<<<<<<<<<");
       const { access_token } = args.tanamanUser
       try {
         const response = await axios.post("http://localhost:3001/tanamanUser/", args.tanamanUser.data, {headers: {access_token}}
@@ -90,12 +86,9 @@ const resolvers = {
     },
     putTanamanUser: async (_, args) => {
       const { id, access_token, terakhir_disiram, umur_sekarang, form } = args.tanamanUser;
-      console.log(args.tanamanUser);
       try {
-        console.log(access_token);
         const response = await axios.put(
           `http://localhost:3001/tanamanUser/${id}`, {terakhir_disiram, umur_sekarang, form} ,{headers: {access_token}});
-        console.log(response.data);
         return response.data;
       } catch (err) {
         return err;

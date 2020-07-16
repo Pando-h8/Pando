@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1593547749211" clover="3.2.0">
-  <project timestamp="1593547749212" name="All files">
-    <metrics statements="167" coveredstatements="155" conditionals="38" coveredconditionals="30" methods="35" coveredmethods="29" elements="240" coveredelements="214" complexity="0" loc="167" ncloc="167" packages="6" files="12" classes="12"/>
+<coverage generated="1593695933313" clover="3.2.0">
+  <project timestamp="1593695933314" name="All files">
+    <metrics statements="164" coveredstatements="152" conditionals="38" coveredconditionals="30" methods="35" coveredmethods="29" elements="237" coveredelements="211" complexity="0" loc="164" ncloc="164" packages="6" files="12" classes="12"/>
     <package name="users">
       <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="0" coveredmethods="0"/>
       <file name="app.js" path="C:\Users\ASUS\OneDrive\Documents\Hacktiv\Hacktiv8-phase3\Hacktiv8-phase3-week3\Final Project2\Pando\server\services\users\app.js">
@@ -19,44 +19,42 @@
       </file>
     </package>
     <package name="users.controllers">
-      <metrics statements="57" coveredstatements="49" conditionals="13" coveredconditionals="10" methods="21" coveredmethods="16"/>
+      <metrics statements="54" coveredstatements="46" conditionals="13" coveredconditionals="10" methods="21" coveredmethods="16"/>
       <file name="tanamanUserController.js" path="C:\Users\ASUS\OneDrive\Documents\Hacktiv\Hacktiv8-phase3\Hacktiv8-phase3-week3\Final Project2\Pando\server\services\users\controllers\tanamanUserController.js">
-        <metrics statements="32" coveredstatements="26" conditionals="7" coveredconditionals="5" methods="15" coveredmethods="11"/>
+        <metrics statements="30" coveredstatements="24" conditionals="7" coveredconditionals="5" methods="15" coveredmethods="11"/>
         <line num="1" count="2" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
         <line num="6" count="3" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
         <line num="20" count="2" type="stmt"/>
         <line num="21" count="2" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="44" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="42" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
         <line num="57" count="1" type="stmt"/>
         <line num="58" count="1" type="stmt"/>
-        <line num="59" count="1" type="stmt"/>
-        <line num="60" count="1" type="stmt"/>
-        <line num="65" count="1" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="73" count="1" type="stmt"/>
-        <line num="74" count="1" type="stmt"/>
-        <line num="76" count="1" type="cond" truecount="4" falsecount="1"/>
-        <line num="77" count="0" type="stmt"/>
-        <line num="79" count="1" type="stmt"/>
-        <line num="85" count="0" type="stmt"/>
-        <line num="90" count="2" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="74" count="1" type="cond" truecount="4" falsecount="1"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="88" count="2" type="stmt"/>
       </file>
       <file name="userController.js" path="C:\Users\ASUS\OneDrive\Documents\Hacktiv\Hacktiv8-phase3\Hacktiv8-phase3-week3\Final Project2\Pando\server\services\users\controllers\userController.js">
-        <metrics statements="25" coveredstatements="23" conditionals="6" coveredconditionals="5" methods="6" coveredmethods="5"/>
+        <metrics statements="24" coveredstatements="22" conditionals="6" coveredconditionals="5" methods="6" coveredmethods="5"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -64,24 +62,23 @@
         <line num="9" count="9" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="20" count="7" type="stmt"/>
-        <line num="21" count="7" type="cond" truecount="1" falsecount="1"/>
-        <line num="22" count="7" type="stmt"/>
-        <line num="23" count="12" type="stmt"/>
-        <line num="25" count="7" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
+        <line num="19" count="7" type="stmt"/>
+        <line num="20" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="21" count="7" type="stmt"/>
+        <line num="22" count="12" type="stmt"/>
+        <line num="24" count="7" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
         <line num="33" count="2" type="stmt"/>
         <line num="34" count="2" type="stmt"/>
-        <line num="35" count="2" type="stmt"/>
-        <line num="39" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="38" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="39" count="1" type="stmt"/>
         <line num="40" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
         <line num="43" count="1" type="stmt"/>
         <line num="44" count="1" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="54" count="2" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
       </file>
     </package>
     <package name="users.helpers">

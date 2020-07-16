@@ -12,7 +12,6 @@ class UserController {
       password,
     })
       .then((user) => {
-        console.log(user.dataValues);
         const access_token = generateToken(user);
         res.status(201).json({ access_token, userData: user.dataValues });
       })
