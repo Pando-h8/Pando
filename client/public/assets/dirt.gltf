@@ -1,0 +1,246 @@
+{
+   "accessors" : [
+      {
+         "bufferView" : 0,
+         "componentType" : 5125,
+         "count" : 72,
+         "type" : "SCALAR"
+      },
+      {
+         "bufferView" : 1,
+         "componentType" : 5126,
+         "count" : 72,
+         "type" : "VEC3"
+      },
+      {
+         "bufferView" : 2,
+         "componentType" : 5126,
+         "count" : 72,
+         "type" : "VEC3"
+      },
+      {
+         "bufferView" : 3,
+         "componentType" : 5126,
+         "count" : 72,
+         "type" : "VEC4"
+      },
+      {
+         "bufferView" : 4,
+         "componentType" : 5126,
+         "count" : 72,
+         "type" : "VEC2"
+      }
+   ],
+   "asset" : {
+      "extras" : {
+         "GOOGLE_processor_version" : 293297437
+      },
+      "version" : "2.0"
+   },
+   "bufferViews" : [
+      {
+         "buffer" : 0,
+         "byteLength" : 288
+      },
+      {
+         "buffer" : 0,
+         "byteLength" : 864,
+         "byteOffset" : 288
+      },
+      {
+         "buffer" : 0,
+         "byteLength" : 864,
+         "byteOffset" : 1152
+      },
+      {
+         "buffer" : 0,
+         "byteLength" : 1152,
+         "byteOffset" : 2016
+      },
+      {
+         "buffer" : 0,
+         "byteLength" : 576,
+         "byteOffset" : 3168
+      }
+   ],
+   "buffers" : [
+      {
+         "byteLength" : 3744,
+         "uri" : "model.bin"
+      }
+   ],
+   "cameras" : [
+      {
+         "perspective" : {
+            "yfov" : 0.7853981633974483,
+            "znear" : 0.1000000014901161
+         },
+         "type" : "perspective"
+      }
+   ],
+   "extensions" : {
+      "KHR_lights_punctual" : {
+         "lights" : [
+            {
+               "color" : [ 1, 0.9333333333333333, 0.8666666666666667 ],
+               "intensity" : 0.25,
+               "name" : "headLight",
+               "type" : "directional"
+            },
+            {
+               "color" : [ 1, 0.9333333333333333, 0.8666666666666667 ],
+               "intensity" : 0.324999988079071,
+               "name" : "keyLight",
+               "type" : "directional"
+            }
+         ]
+      }
+   },
+   "extensionsUsed" : [ "GOOGLE_backgrounds", "GOOGLE_camera_settings", "KHR_lights_punctual" ],
+   "extras" : {
+      "GOOGLE_initial_camera_motion" : {
+         "motionPath" : "FULL_ROTATION"
+      },
+      "GOOGLE_lighting_rig" : {
+         "disableShadows" : false
+      }
+   },
+   "images" : [
+      {
+         "uri" : "SM_Env_Tree_DirtPile_01_PolygonTown_01_A_MainTex.png"
+      }
+   ],
+   "materials" : [
+      {
+         "name" : "SM_Env_Tree_DirtPile_01_PolygonTown_01_A",
+         "pbrMetallicRoughness" : {
+            "baseColorTexture" : {
+               "index" : 0
+            }
+         }
+      }
+   ],
+   "meshes" : [
+      {
+         "primitives" : [
+            {
+               "attributes" : {
+                  "NORMAL" : 2,
+                  "POSITION" : 1,
+                  "TANGENT" : 3,
+                  "TEXCOORD_0" : 4
+               },
+               "indices" : 0,
+               "material" : 0
+            }
+         ]
+      }
+   ],
+   "nodes" : [
+      {
+         "children" : [ 1 ],
+         "name" : "RootNode"
+      },
+      {
+         "children" : [ 2 ],
+         "name" : "SM_Env_Tree_DirtPile_01"
+      },
+      {
+         "mesh" : 0
+      },
+      {
+         "children" : [ 4 ]
+      },
+      {
+         "children" : [ 5 ],
+         "extras" : {
+            "isTransformNode" : 1
+         },
+         "translation" : [ -0.04167418102674844, 0.06123319979255684, 0.02348346956690799 ]
+      },
+      {
+         "children" : [ 0 ],
+         "translation" : [ 0.04167418102674844, -0.06123319979255684, -0.02348346956690799 ]
+      },
+      {
+         "camera" : 0,
+         "children" : [ 7 ],
+         "rotation" : [
+            -0.2191200700304932,
+            0.1220929489585056,
+            0.0276478701478843,
+            0.9676338677416852
+         ],
+         "translation" : [ 0.3899139570725799, 0.8906832733689221, 1.706415302594105 ]
+      },
+      {
+         "extensions" : {
+            "KHR_lights_punctual" : {
+               "light" : 0
+            }
+         },
+         "extras" : {
+            "isHeadLight" : 1
+         },
+         "name" : "headLightNode",
+         "translation" : [ -0.6531353422923499, 0.326567671146175, 0.326567671146175 ]
+      },
+      {
+         "extensions" : {
+            "KHR_lights_punctual" : {
+               "light" : 1
+            }
+         },
+         "extras" : {
+            "isKeyLight" : 1
+         },
+         "name" : "keyLightNode",
+         "rotation" : [ -0.7505326882858236, -0.3752663441429118, 0, 0.5439447166468927 ],
+         "scale" : [ 0, 0, 0.6596666957152735 ],
+         "translation" : [ -0.6293006245258302, 1.398682920532164, -0.6319027824073137 ]
+      }
+   ],
+   "samplers" : [
+      {
+         "wrapS" : 10497,
+         "wrapT" : 10497
+      }
+   ],
+   "scene" : 0,
+   "scenes" : [
+      {
+         "extensions" : {
+            "GOOGLE_backgrounds" : {
+               "color" : [ 0.9803921568627451, 0.9803921568627451, 0.9803921568627451 ]
+            },
+            "GOOGLE_camera_settings" : {
+               "pivot" : [ -0.04166918263516606, 0.06125767538154636, 0.02341149561535705 ]
+            }
+         },
+         "extras" : {
+            "GOOGLE_camera_index" : {
+               "cameraIndex" : 0,
+               "nodeIndex" : 6
+            },
+            "GOOGLE_geometry_data" : {
+               "stats" : {
+                  "centroid" : [ 0.03036607118944327, 0.0793495291016168, 0.02776391330795983 ],
+                  "radius" : 0.6531353422923499,
+                  "stdev" : 0.3987391683680898
+               },
+               "visualCenterPoint" : [ -0.04167418102674844, 0.06123319979255684, 0.02348346956690799 ]
+            },
+            "GOOGLE_hemi_light" : {
+               "groundColor" : [ 0.9803921568627451, 0.9803921568627451, 0.9803921568627451 ]
+            }
+         },
+         "nodes" : [ 3, 6, 8 ]
+      }
+   ],
+   "textures" : [
+      {
+         "sampler" : 0,
+         "source" : 0
+      }
+   ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "tanaman_users",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dbtest:create": "NODE_ENV=test sequelize db:create && NODE_ENV=test sequelize db:migrate",
+    "dbtest:drop": "NODE_ENV=test sequelize db:drop",
+    "test": "NODE_ENV=test jest --collect-coverage --detectOpenHandles --runInBand --forceExit"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jest": "^26.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.2.1",
+    "sequelize": "^6.1.1",
+    "sequelize-cli": "^6.1.0",
+    "supertest": "^4.0.2"
+  }
+}

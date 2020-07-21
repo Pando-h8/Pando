@@ -1,1 +1,1 @@
-#Pando Apps
+#Pando Application

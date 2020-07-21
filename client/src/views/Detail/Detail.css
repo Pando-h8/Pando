@@ -1,0 +1,150 @@
+.PlantsById {
+  /* background-color: #5cdb95; */
+  background-image: url('/assets/backgroundCanvas.jpg');
+  min-height: 100vh;
+}
+
+canvas {
+  /* background-image: url('/assets/backgroundCanvas.jpg'); */
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.Canvas3D {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Canvas3D h1 {
+  font-family: "Pacifico";
+  font-size: 800%;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  right: 5%;
+  opacity: 60%;
+  z-index: 1;
+  cursor: pointer;
+  transition: 0.5s ease;
+  /* left: 50%; */
+}
+
+.Canvas3D h1:hover {
+  opacity: 80%;
+}
+
+.Canvas3D .umur, .Canvas3D .buttonCanvas {
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+  /* border: 1px solid black; */
+  transition: 0.3s ease;
+  /* margin-top: 3vh; */
+  /* left: 50%; */
+}
+
+.Canvas3D .Back {
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+  margin-left: 50px;
+  margin-top: 50px;
+  top: 0;
+  left: 0;
+  font-size: 300%;
+  transition: 0.5s ease;
+}
+
+.Canvas3D .Back:hover {
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+  margin-left: 50px;
+  margin-top: 50px;
+  top: 0;
+  left: 0;
+  font-size: 400%;
+}
+
+.Canvas3D .Spray {
+  bottom: 10%;
+  color: black;
+  width: 350px;
+  height: 200px;
+  font-family: 'Kalam';
+  font-size: 20px;
+}
+
+.Canvas3D .Spray:hover {
+  width: 400px;
+  height: 250px;
+}
+
+.Canvas3D .Youtube {
+  bottom: 10%;
+  left: 15%;
+  color: black;
+}
+
+.Canvas3D .Delete {
+  bottom: 10%;
+  right: 15%;
+}
+
+.Canvas3D .Youtube, .Canvas3D .Delete {
+  color: #fff;
+  background-color: rgb(204, 17, 39);
+  font-size: 120%;
+}
+
+.Canvas3D .umur {
+  top: 15%;
+  right: 5%;
+  opacity: 60%;
+  font-size: 300%;
+  font-family: "Pacifico";
+  transition: 0.5s ease;
+}
+
+.Canvas3D .umur:hover {
+  opacity: 80%;
+}
+
+.Canvas3D .buttonCanvas:hover {
+  color: #333;
+  font-size: 200%;
+}
+
+.Canvas3D .buttonCanvas {
+  padding: 20px 30px;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+.Canvas3D .Status {
+  font-family: "Kalam";
+  font-size: 150%;
+  bottom: 0;
+  color: black;
+  width: 350px;
+  height: 200px;
+}
+
+.Canvas3D .toggle {
+  top: 0;
+  font-size: 200%;
+  cursor: pointer;
+  margin-top: 50px;
+  transition: 1s all ease;
+}
+
+.Canvas3D .toggle:hover {
+  color: #fff;
+  font-size: 300%;
+}

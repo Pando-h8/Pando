@@ -1,0 +1,45 @@
+.bg {
+  background: linear-gradient(-110deg, #379683 50%, rgba(0, 0, 0, 0) 10%), url('./logoresize.jpg');
+    /* Set rules to fill background */
+    min-height: 100vh;
+    min-width: 1024px;
+
+    background-size: 100vw 100vh;
+    
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+    
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.login {
+  position: relative;
+  float: right;
+  margin-right: 10vw;
+  margin-top: 30vh;
+  font-family: 'Kalam';
+}
+
+.register {
+  position: relative;
+  float: right;
+  margin-right: 10vw;
+  margin-top: 30vh;
+  font-family: 'Kalam';
+}
+
+.keRegister , .keLogin{
+  cursor: pointer;
+  color: #05386b;
+  font-weight: 900;
+  font-size: 20px;
+  transition: 0.5s ease;
+}
+
+.keRegister:hover, .keLogin:hover{
+  color: #8EE4AF;
+}
